@@ -1,0 +1,29 @@
+﻿@inject IViewInventoriesByNameUseCases _viewInventoryByNameUseCases
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <ItemsInInventoryList Inventories="listInventories"></ItemsInInventoryList>
+    </tbody>
+</table>
+
+
+@code {
+    private List<Inventory> listInventories = new List<Inventory>();
+
+    [Parameter]
+    public string SearchTerm { get; set; } = string.Empty;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        listInventories = (await _viewInventoryByNameUseCases.ExecuteAsync(this.SearchTerm)).ToList();
+    }
+}

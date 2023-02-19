@@ -1,0 +1,24 @@
+﻿@inject NavigationManager navManager
+
+@page "/inventories"
+<h3>List of inventories</h3>
+<br/>
+<SearchInventory OnSearchInventory="OnInventorySearch"></SearchInventory>
+<br />
+<InventoryList SearchTerm="@searchTerm"></InventoryList>
+<br/>
+<button type="button" class="btn btn-primary" @onclick="AddInventory" >Add Inventory</button>
+
+@code {
+
+    //Searching for inventories
+    private string searchTerm = string.Empty;
+
+    private void OnInventorySearch(string searchTerm){
+        this.searchTerm = searchTerm;
+    }
+
+    private void AddInventory(){
+        navManager.NavigateTo("/addInventory");
+    }
+}
