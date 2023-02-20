@@ -1,7 +1,7 @@
 ﻿@page "/addInventory"
 @inject IAddInventoryUseCase _addInventoryUseCase
 
-<h3>Add a new Product</h3>
+<h3>Add Inventory</h3>
 <br/>
 
 <EditForm Model="inventory" OnValidSubmit="SaveInventory">
@@ -9,8 +9,8 @@
     <ValidationSummary></ValidationSummary>
 
     <div class="form-group">
-        <label for="name">Product Name</label>
-        <InputText id="name" class="form-control" @bind-Value="inventory.ProductName"></InputText>
+        <label for="name">Inventory Name</label>
+        <InputText id="name" class="form-control" @bind-Value="inventory.InventoryName"></InputText>
         <label for="quantity">Quanity</label>
         <InputNumber id="quantity" class="form-control" @bind-Value="inventory.Quantity"></InputNumber>
         <label for="price">Price</label>
@@ -18,6 +18,7 @@
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-warning" @onclick="Cancel">Cancel</button>
 </EditForm>
 
 @code {
@@ -28,5 +29,7 @@
         navManager.NavigateTo("/inventories");
     }
 
-
+    private void Cancel(){
+        navManager.NavigateTo("/inventories");
+    }
 }

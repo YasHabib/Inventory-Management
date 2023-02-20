@@ -1,0 +1,21 @@
+﻿@page "/products"
+<h3>Product List</h3>
+
+<SearchProducts OnSearchProduct="OnProductSearch"></SearchProducts><br/>
+<ProductList SearchTerm="@searchTerm"></ProductList>
+<br />
+<button type="button" class="btn btn-primary" @onclick="AddProduct">Add Product</button>
+@code {
+    //Searching for inventories
+    private string searchTerm = string.Empty;
+
+    private void OnProductSearch(string searchTerm)
+    {
+        this.searchTerm = searchTerm;
+    }
+
+    private void AddProduct()
+    {
+        navManager.NavigateTo("/addproduct");
+    }
+}

@@ -11,16 +11,16 @@
     private string searchString = string.Empty;
 
     [Parameter]
-    public EventCallback<string> OnSearchInventory { get; set; }
+    public EventCallback<string> OnSearchProduct { get; set; }
 
     private void OnSearch(){
-        OnSearchInventory.InvokeAsync(searchString);
+        OnSearchProduct.InvokeAsync(searchString);
     }
 
-    private async Task OnEnter(KeyboardEventArgs args){
-        if(args.Key=="Enter"){
-           await OnSearchInventory.InvokeAsync(searchString);
-        }
-    }
+    //private async Task OnEnter(KeyboardEventArgs args){
+    //    if(args.Key=="Enter"){
+    //       await OnSearchProduct.InvokeAsync(searchString);
+    //    }
+    //}
 
 }

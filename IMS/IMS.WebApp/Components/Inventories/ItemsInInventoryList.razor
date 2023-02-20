@@ -4,11 +4,11 @@
     foreach (var inv in Inventories)
     {
         <tr>
-            <td>@inv.ProductName</td>
+            <td>@inv.InventoryName</td>
             <td>@inv.Quantity</td>
             <td>@inv.Price.ToString("c")</td>
             <td>
-                <button type="button" class="btn btn-light">Edit</button>
+                <button type="button" class="btn btn-light" onclick="@(() => EditInventory(inv.InventoryId))">Edit</button>
             </td>
         </tr>
     }
@@ -16,5 +16,9 @@
 @code {
     [Parameter]
     public List<Inventory> Inventories { get; set; } = new List<Inventory>();
+
+    private void EditInventory(int inventoryId){
+        navManager.NavigateTo($"/editInventory/{inventoryId}");
+    }
 
 }
