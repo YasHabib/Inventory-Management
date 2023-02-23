@@ -1,15 +1,15 @@
 ﻿@page "/products"
 <h3>Product List</h3>
 
-<SearchProducts OnSearchProduct="OnProductSearch"></SearchProducts><br/>
-<ProductList SearchTerm="@searchTerm"></ProductList>
+<SearchProductComponent OnSearchProduct="OnSearchProduct"></SearchProductComponent><br/>
+<ProductListComponent SearchTerm="@searchTerm"></ProductListComponent>
 <br />
 <button type="button" class="btn btn-primary" @onclick="AddProduct">Add Product</button>
 @code {
     //Searching for inventories
     private string searchTerm = string.Empty;
 
-    private void OnProductSearch(string searchTerm)
+    private void OnSearchProduct(string searchTerm)
     {
         this.searchTerm = searchTerm;
     }

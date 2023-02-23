@@ -28,28 +28,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnZlbnRvcmllc1xJdGVtc0luSW52ZW50b3J5TGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Inventories/SearchAndDisplayInventories.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnZlbnRvcmllc1xTZWFyY2hBbmREaXNwbGF5SW52ZW50b3JpZXMucmF6b3I=
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Inventories/SearchInventoryComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnZlbnRvcmllc1xTZWFyY2hJbnZlbnRvcnlDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Inventories/SearchInventory.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnZlbnRvcmllc1xTZWFyY2hJbnZlbnRvcnkucmF6b3I=
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Products/ProductInventoryComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xQcm9kdWN0SW52ZW50b3J5Q29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Products/ItemsInProductList.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xJdGVtc0luUHJvZHVjdExpc3QucmF6b3I=
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Products/ProductListComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xQcm9kdWN0TGlzdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Products/ProductInventoryComp.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xQcm9kdWN0SW52ZW50b3J5Q29tcC5yYXpvcg==
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Products/ProductListItemComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xQcm9kdWN0TGlzdEl0ZW1Db21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Products/ProductList.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xQcm9kdWN0TGlzdC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Products/SearchProducts.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xTZWFyY2hQcm9kdWN0cy5yYXpvcg==
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Products/SearchProductComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xTZWFyY2hQcm9kdWN0Q29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Counter.razor]
@@ -72,25 +68,29 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3JpZXNcRWRpdEludmVudG9yeS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Inventories/ListOfInventories.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3JpZXNcTGlzdE9mSW52ZW50b3JpZXMucmF6b3I=
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Inventories/InventoryListPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50b3JpZXNcSW52ZW50b3J5TGlzdFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Products/AddProduct.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcQWRkUHJvZHVjdC5yYXpvcg==
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Products/AddProductPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcQWRkUHJvZHVjdFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Products/EditProduct.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcRWRpdFByb2R1Y3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Products/ListOfProducts.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcTGlzdE9mUHJvZHVjdHMucmF6b3I=
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Products/ProductListPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdExpc3RQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Components/Inventories/SearchAndDisplayInventoriesComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnZlbnRvcmllc1xTZWFyY2hBbmREaXNwbGF5SW52ZW50b3JpZXNDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-yzye5fhjel
 
 [C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

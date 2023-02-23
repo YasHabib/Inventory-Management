@@ -1,0 +1,10 @@
+.search-result[b-yzye5fhjel] {
+    overflow-y: auto;
+    max-height: 300px;
+    border: 1px solid silver;
+    padding-top: 10px
+}
+
+div ul li[b-yzye5fhjel] {
+    cursor:pointer
+}

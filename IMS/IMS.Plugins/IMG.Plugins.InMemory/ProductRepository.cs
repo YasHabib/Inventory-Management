@@ -21,6 +21,14 @@ namespace IMG.Plugins.InMemory
             };
         }
 
+        public async Task<IEnumerable<Product>> GetProductsByNameAsync(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return await Task.FromResult(_products);
+            else
+                return _products.Where(i => i.ProductName.Contains(name, StringComparison.OrdinalIgnoreCase));
+        }
+
         public Task AddProductAsync(Product product)
         {
             if (_products.Any(x => x.ProductName.Equals(product.ProductName, StringComparison.OrdinalIgnoreCase)))
@@ -28,50 +36,42 @@ namespace IMG.Plugins.InMemory
                 return Task.CompletedTask;
             }
 
-            var lastId = _products.OrderByDescending(x => x.ProductId).Select(x => x.ProductId).FirstOrDefault();
-            product.ProductId = lastId + 1;
+            var maxId = _products.Max(x => x.ProductId);
+            product.ProductId = maxId + 1;
             _products.Add(product);
             return Task.CompletedTask;
         }
 
-        public Task UpdateProductAsync(Product inventory)
-        {
-            if (_products.Any(x => x.ProductId == inventory.ProductId && x.ProductName.Equals(inventory.ProductName, StringComparison.OrdinalIgnoreCase)))
-            {
-                return Task.CompletedTask;
-            }
+        //public Task UpdateProductAsync(Product inventory)
+        //{
+        //    if (_products.Any(x => x.ProductId == inventory.ProductId && x.ProductName.Equals(inventory.ProductName, StringComparison.OrdinalIgnoreCase)))
+        //    {
+        //        return Task.CompletedTask;
+        //    }
 
-            var inv = _products.FirstOrDefault(x => x.ProductId == inventory.ProductId);
-            if (inv != null)
-            {
-                inv.ProductName = inventory.ProductName;
-                inv.Quantity = inventory.Quantity;
-                inv.Price = inventory.Price;
-            }
+        //    var inv = _products.FirstOrDefault(x => x.ProductId == inventory.ProductId);
+        //    if (inv != null)
+        //    {
+        //        inv.ProductName = inventory.ProductName;
+        //        inv.Quantity = inventory.Quantity;
+        //        inv.Price = inventory.Price;
+        //    }
 
-            return Task.CompletedTask;
-        }
+        //    return Task.CompletedTask;
+        //}
 
-        public async Task<IEnumerable<Product>> GetProductsByNameAsync(string name)
-        {
-            if (string.IsNullOrEmpty(name))
-                return await Task.FromResult(_products);
-            else
-                return _products.Where(i => i.ProductName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
-        }
+        //public async Task<Product> GetProductByIdAsync(int invId)
+        //{
+        //    var inv = _products.FirstOrDefault(x => x.ProductId == invId);
+        //    var newInv = new Product
+        //    {
+        //        ProductId = inv.ProductId,
+        //        ProductName = inv.ProductName,
+        //        Quantity = inv.Quantity,
+        //        Price = inv.Price
+        //    };
 
-        public async Task<Product> GetProductByIdAsync(int invId)
-        {
-            var inv = _products.FirstOrDefault(x => x.ProductId == invId);
-            var newInv = new Product
-            {
-                ProductId = inv.ProductId,
-                ProductName = inv.ProductName,
-                Quantity = inv.Quantity,
-                Price = inv.Price
-            };
-
-            return await Task.FromResult(newInv);
-        }
+        //    return await Task.FromResult(newInv);
+        //}
     }
 }

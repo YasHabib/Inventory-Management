@@ -19,8 +19,8 @@ namespace IMS.UseCases.Products
 
         public async Task ExecuteAsync(Product product)
         {
-            //if (product == null) return;
-
+            if (product == null) return;
+            
             await _productRepository.AddProductAsync(product);
         }
     }

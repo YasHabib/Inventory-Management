@@ -10,8 +10,8 @@ namespace IMS.UseCases.Products.Interface
     public interface IProductRepository
     {
         Task AddProductAsync(Product product);
-        Task UpdateProductAsync(Product product);
-        Task<Product> GetProductByIdAsync(int invId);
+        //Task UpdateProductAsync(Product product);
+        //Task<Product> GetProductByIdAsync(int invId);
         Task<IEnumerable<Product>> GetProductsByNameAsync(string name);
     }
 }

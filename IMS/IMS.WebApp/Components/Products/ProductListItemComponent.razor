@@ -7,9 +7,9 @@
             <td>@prod.ProductName</td>
             <td>@prod.Quantity</td>
             <td>@prod.Price.ToString("c")</td>
-            <td>
+@*            <td>
                 <button type="button" class="btn btn-light" onclick="@(() => EditInventory(prod.ProductId))">Edit</button>
-            </td>
+            </td>*@
         </tr>
     }
 }
@@ -17,8 +17,8 @@
     [Parameter]
     public List<Product> Products { get; set; } = new List<Product>();
 
-    private void EditInventory(int inventoryId){
-        navManager.NavigateTo($"/editInventory/{inventoryId}");
-    }
+    //private void EditInventory(int inventoryId){
+    //    navManager.NavigateTo($"/editInventory/{inventoryId}");
+    //}
 
 }
