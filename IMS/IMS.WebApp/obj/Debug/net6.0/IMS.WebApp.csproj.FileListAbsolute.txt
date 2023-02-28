@@ -38,3 +38,4 @@ C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.WebApp\obj\
 C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.WebApp\obj\Debug\net6.0\IMS.WebApp.genruntimeconfig.cache
 C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.WebApp\obj\Debug\net6.0\ref\IMS.WebApp.dll
 C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.WebApp\obj\Debug\net6.0\scopedcss\Components\Inventories\SearchAndDisplayInventoriesComponent.razor.rz.scp.css
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.WebApp\obj\Debug\net6.0\scopedcss\Components\Common\AutoCompleteComponent.razor.rz.scp.css

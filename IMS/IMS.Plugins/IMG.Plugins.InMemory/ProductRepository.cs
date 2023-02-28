@@ -42,36 +42,63 @@ namespace IMG.Plugins.InMemory
             return Task.CompletedTask;
         }
 
-        //public Task UpdateProductAsync(Product inventory)
-        //{
-        //    if (_products.Any(x => x.ProductId == inventory.ProductId && x.ProductName.Equals(inventory.ProductName, StringComparison.OrdinalIgnoreCase)))
-        //    {
-        //        return Task.CompletedTask;
-        //    }
+        public Task UpdateProductAsync(Product product)
+        {
+            if (_products.Any(x => x.ProductId == product.ProductId && x.ProductName.ToLower() == product.ProductName))
+            {
+                return Task.CompletedTask;
+            }
 
-        //    var inv = _products.FirstOrDefault(x => x.ProductId == inventory.ProductId);
-        //    if (inv != null)
-        //    {
-        //        inv.ProductName = inventory.ProductName;
-        //        inv.Quantity = inventory.Quantity;
-        //        inv.Price = inventory.Price;
-        //    }
+            var prod = _products.FirstOrDefault(x => x.ProductId == product.ProductId);
+            if (prod != null)
+            {
+                prod.ProductName = product.ProductName;
+                prod.Quantity = product.Quantity;
+                prod.Price = product.Price;
+                prod.ProductInventories = product.ProductInventories;
+            }
 
-        //    return Task.CompletedTask;
-        //}
+            return Task.CompletedTask;
+        }
 
-        //public async Task<Product> GetProductByIdAsync(int invId)
-        //{
-        //    var inv = _products.FirstOrDefault(x => x.ProductId == invId);
-        //    var newInv = new Product
-        //    {
-        //        ProductId = inv.ProductId,
-        //        ProductName = inv.ProductName,
-        //        Quantity = inv.Quantity,
-        //        Price = inv.Price
-        //    };
+        public async Task<Product?> GetProductByIdAsync(int prodId)
+        {
+            var prod = _products.FirstOrDefault(x => x.ProductId == prodId);
+            var newProd = new Product();
+            if(prod != null)
+            {
+                newProd.ProductId = prod.ProductId;
+                newProd.ProductName = prod.ProductName;
+                newProd.Price = prod.Price;
+                newProd.Quantity = prod.Quantity;
+                newProd.ProductInventories = new List<ProductInventory>();
+                if(prod.ProductInventories != null && prod.ProductInventories.Count > 0)
+                {
+                    foreach(var prodInv in prod.ProductInventories)
+                    {
+                        var newProdInv = new ProductInventory
+                        {
+                            ProductId = prodInv.ProductId,
+                            InventoryId = prodInv.InventoryId,
+                            Product = prod,
+                            Inventory = new Inventory(),
+                            InventoryQuantity = prodInv.InventoryQuantity
+                        };
+                        if(prodInv.Inventory != null)
+                        {
+                            newProdInv.Inventory.InventoryId = prodInv.Inventory.InventoryId;
+                            newProdInv.Inventory.InventoryName = prodInv.Inventory.InventoryName;
+                            newProdInv.Inventory.Price = prodInv.Inventory.Price;
+                            newProdInv.Inventory.Quantity = prodInv.Inventory.Quantity;
+                        }
 
-        //    return await Task.FromResult(newInv);
-        //}
+                        newProd.ProductInventories.Add(newProdInv);
+                    }
+                }
+
+            };
+
+            return await Task.FromResult(newProd);
+        }
     }
 }

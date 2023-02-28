@@ -1,0 +1,55 @@
+﻿@page "/editproduct/{prodId:int}"
+@inject IViewProductsByIdUseCase _viewProductIdByUseCase
+@inject IEditProductUseCase _editProductUseCase
+
+<h3>Editing product</h3>
+<br />
+@if(this.product != null){
+    <EditForm Model="product" OnValidSubmit="SaveProduct">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <ValidationSummary></ValidationSummary>
+
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            <InputText id="name" class="form-control" @bind-Value="product.ProductName"></InputText>
+            <label for="quantity">Quanity</label>
+            <InputNumber id="quantity" class="form-control" @bind-Value="product.Quantity"></InputNumber>
+            <label for="price">Price</label>
+            <InputNumber id="price" class="form-control" @bind-Value="product.Price"></InputNumber>
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="invs">Inventories</label>
+            <ProductInventoryComponent Product="this.product"></ProductInventoryComponent>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-warning" @onclick="Cancel">Cancel</button>
+    </EditForm>
+}
+
+@code {
+    private Product? product;
+
+    [Parameter]
+    public int prodId { get; set; }
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        this.product = await _viewProductIdByUseCase.ExecuteAsync(prodId);
+    }
+
+
+    private async Task SaveProduct(){
+        if(product != null){
+            await _editProductUseCase.ExecuteAsync(product);
+        }
+        navManager.NavigateTo("/products");
+    }
+
+    private void Cancel(){
+        navManager.NavigateTo("/products");
+    }
+
+}
