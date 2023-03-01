@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\IMS.WebApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.WebApp\\wwwroot\\JSInterOp.js",
+      "PackagePath": "staticwebassets\\JSInterOp.js"
+    },
+    {
       "Id": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.WebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },

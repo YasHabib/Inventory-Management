@@ -11,6 +11,23 @@ namespace IMG.Plugins.InMemory
     public class InventoryTransactionRepository : IInventoryTransactionRepository
     {
         public List<InventoryTransaction> inventoryTransactions = new List<InventoryTransaction>();
+
+        public void ProduceAsync(string produceNumber, Inventory inventory, int quantity, string purchasedBy, double price)
+        {
+            inventoryTransactions.Add(new InventoryTransaction
+            {
+                ProductionNumber = produceNumber,
+                InventoryId = inventory.InventoryId,
+                QuantityBefore = inventory.Quantity,
+                ActivityType = InventoryTransactionType.ProduceProduct,
+                QuantityAfter = inventory.Quantity - quantity,
+                TransactionDate = DateTime.UtcNow,
+                PurchasedBy = purchasedBy,
+                UnitPrice = price
+
+            });
+        }
+
         public void PurchaseAsync(string purchaseOrderNumber, Inventory inventory, int quantity, string purchasedBy, double price)
         {
             inventoryTransactions.Add(new InventoryTransaction

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9w9SX1XFx8Zkueh5pbUOaBQsOCoiBxTtLfSIc0oVKKA=",
+  "Hash": "zm498+REGBIQkkfYgf2dB/RJOXLLYYESLAtdObBStHU=",
   "Source": "IMS.WebApp",
   "BasePath": "_content/IMS.WebApp",
   "Mode": "Default",
@@ -270,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.WebApp\\wwwroot\\JSInterOp.js",
+      "SourceId": "IMS.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.WebApp\\wwwroot\\",
+      "BasePath": "_content/IMS.WebApp",
+      "RelativePath": "JSInterOp.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JSInterOp.js"
     }
   ]
 }

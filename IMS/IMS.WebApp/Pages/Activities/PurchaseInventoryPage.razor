@@ -5,9 +5,11 @@
 @inject IViewInventoriesByNameUseCases _viewInventoriesByNameUseCases
 @inject IViewInventoryByIdUseCase _viewInventoryByIdUseCase
 @inject IPurchaseInventoryUseCase _purchaseInventoryUseCase
+@inject IJSRuntime JSRuntime
+
 <h3>Purchase Inventory</h3>
 
-<EditForm Model="purchaseViewModel" OnValidSubmit="Purchase">
+<EditForm id="purchase-form" Model="purchaseViewModel" OnValidSubmit="Purchase">
     <DataAnnotationsValidator></DataAnnotationsValidator>
     <ValidationSummary></ValidationSummary>
 
@@ -37,6 +39,14 @@
     private PurchaseViewModel purchaseViewModel = new PurchaseViewModel();
     private Inventory? selectedInventory = null;
 
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if(firstRender){
+            JSRuntime.InvokeVoidAsync("PreventFormSubmission", "purchase-form");
+        }
+    }
+
     private async Task Purchase()
     {
         await _purchaseInventoryUseCase.ExecuteAsync(
@@ -63,7 +73,7 @@
             })?.ToList();
     }
 
-    private async void OnItemSelected(ItemViewModel item){
+    private async Task OnItemSelected(ItemViewModel item){
 
         selectedInventory = await _viewInventoryByIdUseCase.ExecuteAsyc(item.Id);
         purchaseViewModel.InventoryId = item.Id;

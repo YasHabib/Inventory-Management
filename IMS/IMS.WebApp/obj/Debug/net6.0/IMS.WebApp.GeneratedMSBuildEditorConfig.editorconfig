@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0c1xTZWFyY2hQcm9kdWN0Q29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Activities/ProduceProductPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0aXZpdGllc1xQcm9kdWNlUHJvZHVjdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/yasin/Desktop/Projects/ASP NET/Inventory-Management/IMS/IMS.WebApp/Pages/Activities/PurchaseInventoryPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0aXZpdGllc1xQdXJjaGFzZUludmVudG9yeVBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

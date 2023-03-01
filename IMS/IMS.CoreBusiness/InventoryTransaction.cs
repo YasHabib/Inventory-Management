@@ -11,6 +11,8 @@ namespace IMS.CoreBusiness
     {
         public int InventoryTransactionId { get; set; }
         public string PurchaseOrderNumber { get; set; } = string.Empty;
+        public string ProductionNumber { get; set; } = string.Empty;
+
         [Required]
         public int InventoryId { get; set; }
         [Required]

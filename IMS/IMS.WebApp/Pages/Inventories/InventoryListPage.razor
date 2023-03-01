@@ -10,11 +10,6 @@
 <InventoryList SearchTerm="@searchTerm"></InventoryList>
 <br/>
 <button type="button" class="btn btn-primary" @onclick="AddInventory" >Add Inventory</button>
-<AutoCompleteComponent 
-    Label="Inventory" 
-    SearchFunction="SearchInventory"
-    OnItemSelected="OnItemSelected"
-></AutoCompleteComponent>
 <br />
 @selectedItem?.Name
 
