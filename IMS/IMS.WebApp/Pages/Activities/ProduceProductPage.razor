@@ -10,7 +10,7 @@
 
 <h3>Produce Product</h3>
 <br />
-<EditForm Model="produceViewModel" OnValidSubmit="Produce">
+<EditForm id = "produec-form" Model="produceViewModel" OnValidSubmit="Produce">
     <DataAnnotationsValidator></DataAnnotationsValidator>
     <ValidationSummary></ValidationSummary>
 
@@ -26,7 +26,7 @@
         <label for="qty">Quantity</label>
         <InputNumber id="po" @bind-Value="produceViewModel.QuantityProduced" class="form-control"></InputNumber>
         <br />
-        <button type="submit" class="btn-primary">Purchase</button>
+        <button type="submit" class="btn-primary">Produce </button>
     </div>
 
 </EditForm>
@@ -39,14 +39,14 @@
         base.OnAfterRender(firstRender);
         if (firstRender)
         {
-            JSRuntime.InvokeVoidAsync("PreventFormSubmission", "purchase-form");
+            JSRuntime.InvokeVoidAsync("PreventFormSubmission", "produce-form");
         }
     }
 
 
-    private List<ItemViewModel>? SearchProduct(string name)
+    private async Task<List<ItemViewModel>?> SearchProduct(string name)
     {
-        var list = _viewProductbyNameUeCases.ExecuteAsyc(name).GetAwaiter().GetResult();
+        var list = await _viewProductbyNameUeCases.ExecuteAsyc(name);
 
         if (list == null) return null;
 

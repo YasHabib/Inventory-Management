@@ -21,7 +21,7 @@
             SearchFunction="SearchInventory"
             OnItemSelected="OnItemSelected">
         </AutoCompleteComponent>
-        <input type="hidden" value="@purchaseViewModel"/>
+        <input type="hidden" value="@purchaseViewModel.InventoryId"/>
         @if(purchaseViewModel.InventoryPrice > 0 && purchaseViewModel.InventoryPrice >= 0){
             <text>Price:</text>
             @purchaseViewModel.InventoryPrice.ToString("c");
@@ -60,9 +60,9 @@
         this.selectedInventory = null;
     }
 
-    private List<ItemViewModel>? SearchInventory(string name)
+    private async Task<List<ItemViewModel>?> SearchInventory(string name)
     {
-        var list = _viewInventoriesByNameUseCases.ExecuteAsync(name).GetAwaiter().GetResult();
+        var list = await _viewInventoriesByNameUseCases.ExecuteAsync(name);
 
         if (list == null) return null;
 
