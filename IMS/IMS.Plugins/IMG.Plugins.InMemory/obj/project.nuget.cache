@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TcT9apv0TcWJyUHPk7VRDUwvvrxudFM33VtxEl1TQLsQ3pr8QOhObdRvj0y93nMuNk3BxkY5gmjHj0qbRORqgA==",
+  "dgSpecHash": "WAFo96vY/IajyMSMThhGAihNqo7BVLeINMaDICVqOHH0VRuZEYbx5CC0ZLlHCCDq6uUH0AdfGTUF0tBlLTpaDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.Plugins\\IMG.Plugins.InMemory\\IMG.Plugins.InMemory.csproj",
+  "projectFilePath": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.Plugins\\IMG.Plugins.InMemory\\IMS.Plugins.InMemory.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

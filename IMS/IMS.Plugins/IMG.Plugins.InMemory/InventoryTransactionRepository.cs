@@ -49,7 +49,7 @@ namespace IMG.Plugins.InMemory
             return query;
         }
 
-        public void ProduceAsync(string produceNumber, Inventory inventory, int quantity, string purchasedBy, double price)
+        public Task ProduceAsync(string produceNumber, Inventory inventory, int quantity, string purchasedBy, double price)
         {
             inventoryTransactions.Add(new InventoryTransaction
             {
@@ -63,9 +63,11 @@ namespace IMG.Plugins.InMemory
                 UnitPrice = price
 
             });
+
+            return Task.CompletedTask;
         }
 
-        public void PurchaseAsync(string purchaseOrderNumber, Inventory inventory, int quantity, string purchasedBy, double price)
+        public Task PurchaseAsync(string purchaseOrderNumber, Inventory inventory, int quantity, string purchasedBy, double price)
         {
             inventoryTransactions.Add(new InventoryTransaction
             {
@@ -79,6 +81,8 @@ namespace IMG.Plugins.InMemory
                 UnitPrice = price
 
             });
+
+            return Task.CompletedTask;
         }
     }
 }

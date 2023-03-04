@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  ims.webapp:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__InventoryManagement=Server=ims.db,8002;Database=imsdb;User Id=sa;Password=Test1234;Encrypt=False
+    ports:
+      - "80"

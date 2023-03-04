@@ -1,0 +1,17 @@
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\bin\Debug\net6.0\IMS.Plugins.InMemory.deps.json
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\bin\Debug\net6.0\IMS.Plugins.InMemory.dll
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\bin\Debug\net6.0\IMS.Plugins.InMemory.pdb
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\bin\Debug\net6.0\IMS.CoreBusiness.dll
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\bin\Debug\net6.0\IMS.UseCases.dll
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\bin\Debug\net6.0\IMS.UseCases.pdb
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\bin\Debug\net6.0\IMS.CoreBusiness.pdb
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\IMS.Plugins.InMemory.csproj.AssemblyReference.cache
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\IMS.Plugins.InMemory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\IMS.Plugins.InMemory.AssemblyInfoInputs.cache
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\IMS.Plugins.InMemory.AssemblyInfo.cs
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\IMS.Plugins.InMemory.csproj.CoreCompileInputs.cache
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\IMS.Plugins.InMemory.csproj.CopyComplete
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\IMS.Plugins.InMemory.dll
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\refint\IMS.Plugins.InMemory.dll
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\IMS.Plugins.InMemory.pdb
+C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS\IMS.Plugins\IMG.Plugins.InMemory\obj\Debug\net6.0\ref\IMS.Plugins.InMemory.dll

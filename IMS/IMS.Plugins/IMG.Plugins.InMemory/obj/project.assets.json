@@ -50,9 +50,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.Plugins\\IMG.Plugins.InMemory\\IMG.Plugins.InMemory.csproj",
-      "projectName": "IMG.Plugins.InMemory",
-      "projectPath": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.Plugins\\IMG.Plugins.InMemory\\IMG.Plugins.InMemory.csproj",
+      "projectUniqueName": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.Plugins\\IMG.Plugins.InMemory\\IMS.Plugins.InMemory.csproj",
+      "projectName": "IMS.Plugins.InMemory",
+      "projectPath": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.Plugins\\IMG.Plugins.InMemory\\IMS.Plugins.InMemory.csproj",
       "packagesPath": "C:\\Users\\yasin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\yasin\\Desktop\\Projects\\ASP NET\\Inventory-Management\\IMS\\IMS.Plugins\\IMG.Plugins.InMemory\\obj\\",
       "projectStyle": "PackageReference",
@@ -102,7 +102,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

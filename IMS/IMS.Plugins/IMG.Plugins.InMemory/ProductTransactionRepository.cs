@@ -40,7 +40,7 @@ namespace IMG.Plugins.InMemory
                     if(pi.Inventory != null)
                     {
                         //add inventory transaction
-                        _inventoryTransactionRepository.ProduceAsync(productionNumber, pi.Inventory, pi.InventoryQuantity * quantity, completedBy, -1);
+                        await _inventoryTransactionRepository.ProduceAsync(productionNumber, pi.Inventory, pi.InventoryQuantity * quantity, completedBy, -1);
 
                         //decerase the inventory
                         var inv = await _inventoryRepository.GetInventoryByIdAsync(pi.InventoryId);
