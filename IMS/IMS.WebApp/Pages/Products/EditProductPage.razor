@@ -1,4 +1,5 @@
 ﻿@page "/editproduct/{prodId:int}"
+@attribute [Authorize(Policy = "Inventory")]
 @inject IViewProductsByIdUseCase _viewProductIdByUseCase
 @inject IEditProductUseCase _editProductUseCase
 

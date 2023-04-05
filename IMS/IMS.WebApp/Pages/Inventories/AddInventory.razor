@@ -1,4 +1,5 @@
 ﻿@page "/addInventory"
+@attribute [Authorize(Policy = "Inventory")]
 @inject IAddInventoryUseCase _addInventoryUseCase
 
 <h3>Add Inventory</h3>

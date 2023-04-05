@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMS.Plugins", "IMS.Plugins"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMS.Plugins.InMemory", "IMS.Plugins\IMG.Plugins.InMemory\IMS.Plugins.InMemory.csproj", "{D1A62D6B-9C20-4069-BD14-52866B93CF1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMG.Plugins.EFCoreSQL", "IMS.Plugins.EDCoreSQL\IMG.Plugins.EFCoreSQL.csproj", "{13E851F5-CC1A-4D44-B940-0D38717C07C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMG.Plugins.EFCoreSQL", "IMS.Plugins.EDCoreSQL\IMG.Plugins.EFCoreSQL.csproj", "{13E851F5-CC1A-4D44-B940-0D38717C07C2}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C4D14F30-4C31-458C-B630-2EA67A7FAF9D}"
 EndProject

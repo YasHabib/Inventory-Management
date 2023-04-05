@@ -1,0 +1,51 @@
+name: dockercompose17965481110649604724
+services:
+  ims.db:
+    container_name: ims.db
+    environment:
+      POSTGRES_DB: IMSdb
+      POSTGRES_PASSWORD: IMSpassword
+      POSTGRES_USER: IMSuser
+    image: postgis/postgis:14-3.2-alpine
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 5432
+      published: "8002"
+      protocol: tcp
+    restart: on-failure
+    volumes:
+    - type: volume
+      source: ims-db
+      target: /var/lib/postgresql/data
+      volume: {}
+  ims.webapp:
+    build:
+      context: C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS
+      dockerfile: IMS.WebApp/Dockerfile
+    container_name: ims.app
+    depends_on:
+      ims.db:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__InventoryManagement: Server=ims.db,8002;Database=IMSdb;User
+        Id=IMSuser;Password=IMSpassword
+    image: imswebapp
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: "8001"
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose17965481110649604724_default
+volumes:
+  ims-db:
+    name: dockercompose17965481110649604724_ims-db

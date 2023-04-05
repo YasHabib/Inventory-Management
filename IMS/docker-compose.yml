@@ -10,23 +10,20 @@ services:
       dockerfile: IMS.WebApp/Dockerfile
     ports:
      - "8001:80"
-    #environment:
-    # - DB_HOST=ims-db
-    # - DB_NAME=ims-app
-    # - DB_SA_PASSWORD=test123
     depends_on:
      - ims.db
   ims.db:
     restart: on-failure
     container_name: ims.db
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: "postgis/postgis:14-3.2-alpine"
     ports:
-     - "8002:1433"
+     - "8002:5432"
     environment:
-     - ACCEPT_EULA=Y
-     - MSSQL_SA_PASSWORD=Test1234
+    - POSTGRES_USER=IMSuser
+    - POSTGRES_PASSWORD=IMSpassword
+    - POSTGRES_DB=IMSdb
     volumes:
-     - ims-db:/var/lib/sqlserver/data
+     - ims-db:/var/lib/postgresql/data
 volumes:
   ims-db:
 

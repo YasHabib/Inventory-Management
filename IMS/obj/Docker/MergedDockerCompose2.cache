@@ -1,0 +1,84 @@
+name: dockercompose17965481110649604724
+services:
+  ims.db:
+    container_name: ims.db
+    environment:
+      POSTGRES_DB: IMSdb
+      POSTGRES_PASSWORD: IMSpassword
+      POSTGRES_USER: IMSuser
+    image: postgis/postgis:14-3.2-alpine
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 5432
+      published: "8002"
+      protocol: tcp
+    restart: on-failure
+    volumes:
+    - type: volume
+      source: ims-db
+      target: /var/lib/postgresql/data
+      volume: {}
+  ims.webapp:
+    build:
+      context: C:\Users\yasin\Desktop\Projects\ASP NET\Inventory-Management\IMS
+      dockerfile: IMS.WebApp/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: IMS.WebApp
+    container_name: ims.app
+    depends_on:
+      ims.db:
+        condition: service_started
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__InventoryManagement: Server=ims.db,8002;Database=IMSdb;User
+        Id=IMSuser;Password=IMSpassword
+    image: imswebapp
+    labels:
+      com.microsoft.visual-studio.project-name: IMS.WebApp
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/IMS.WebApp.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: "8001"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\yasin\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\yasin\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\yasin\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose17965481110649604724_default
+volumes:
+  ims-db:
+    name: dockercompose17965481110649604724_ims-db

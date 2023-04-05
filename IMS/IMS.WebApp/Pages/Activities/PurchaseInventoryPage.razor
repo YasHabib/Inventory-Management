@@ -1,4 +1,6 @@
 ﻿@page "/purchase"
+@attribute [Authorize(Policy = "Purchasers")]
+
 @using IMS.UseCases.Actvities.Interfaces
 @using IMS.WebApp.ViewModels
 @using static IMS.WebApp.Components.Common.AutoCompleteComponent
@@ -36,6 +38,20 @@
 </EditForm>
 
 @code {
+
+
+    //Grabbing the logged in user's name
+    private AuthenticationState? authenticationState;
+
+    [CascadingParameter]
+    private Task<AuthenticationState>? authenticationStateTask { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (authenticationStateTask != null)
+            authenticationState = await authenticationStateTask;
+    }
+
     private PurchaseViewModel purchaseViewModel = new PurchaseViewModel();
     private Inventory? selectedInventory = null;
 
@@ -49,12 +65,15 @@
 
     private async Task Purchase()
     {
-        await _purchaseInventoryUseCase.ExecuteAsync(
+        if(authenticationState != null)
+        {
+            await _purchaseInventoryUseCase.ExecuteAsync(
             purchaseViewModel.PurchaseOrderNumber,
             selectedInventory,
             purchaseViewModel.QuantityPurchased,
-            "Frank"
-        );
+            authenticationState.User.Identity.Name
+            );
+        }
 
         this.purchaseViewModel = new PurchaseViewModel();
         this.selectedInventory = null;

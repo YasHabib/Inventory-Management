@@ -49,6 +49,7 @@
                 <th>Unit Price</th>
                 <th>Sales Order #</th>
                 <th>Production #</th>
+                <th>Completed By</th>
             </tr>
         </thead>
         <tbody>
@@ -69,6 +70,7 @@
                     <td>@prodTrans.UnitPrice?.ToString("c")</td>
                     <td>@prodTrans.SalesOrderNumber</td>
                     <td>@prodTrans.ProductionNumber</td>
+                    <td>@prodTrans.CompletedBy</td>
                 </tr>
             }
         </tbody>

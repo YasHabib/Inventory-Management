@@ -10,15 +10,47 @@ using IMS.UseCases.Products;
 using IMS.UseCases.Products.Interface;
 using IMS.UseCases.Reporting;
 using IMS.UseCases.Reporting.Interfaces;
+using IMS.WebApp.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+//Configure autherizations/permissions
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", policy => policy.RequireClaim("Department", "Administration"));
+    options.AddPolicy("Inventory", policy => policy.RequireClaim("Department", "InventoryManagement"));
+    options.AddPolicy("Sales", policy => policy.RequireClaim("Department", "Sales"));
+    options.AddPolicy("Purchasers", policy => policy.RequireClaim("Department", "Purchasing"));
+    options.AddPolicy("Productions", policy => policy.RequireClaim("Department", "ProductionManagement"));
+
+});    
+
+
+//Configure EF core for Identity
+var CONN = builder.Configuration.GetConnectionString("InventoryManagement");
+
+builder.Services.AddDbContext<AccountDbContext>(options =>
+{
+    options.UseNpgsql(CONN);
+});
+
+//Configure Identity
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedPhoneNumber = false;
+}).AddEntityFrameworkStores<AccountDbContext>();
+
+//Conigure Postgres DB
 builder.Services.AddDbContextFactory<IMSContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("InventoryManagement"));
+    options.UseNpgsql(CONN);
 });
 
 // Add services to the container.
@@ -77,6 +109,8 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

@@ -1,4 +1,5 @@
 ﻿@page "/inventories"
+@attribute [Authorize(Policy = "Inventory")]
 @using static IMS.WebApp.Components.Common.AutoCompleteComponent
 @inject IViewInventoriesByNameUseCases _viewInventoriesByNameUseCases
 

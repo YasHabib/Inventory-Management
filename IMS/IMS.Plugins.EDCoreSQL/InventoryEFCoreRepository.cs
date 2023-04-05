@@ -1,5 +1,4 @@
-﻿using IMG.Plugins.EFCoreSQL.Migrations;
-using IMS.CoreBusiness;
+﻿using IMS.CoreBusiness;
 using IMS.Plugins.EFCoreSQL;
 using IMS.UseCases.Inventories.Interfaces;
 using Microsoft.EntityFrameworkCore;
