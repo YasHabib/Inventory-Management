@@ -1,0 +1,26 @@
+﻿
+<div class="input-group-text">
+    <input type="text" class="form-control" placeholder="Search inventory's name" @bind-value="searchString" />
+    <button type="button" class="btn-success input-group-text" @onclick="OnSearch">Search</button>
+</div>
+
+@*<p>Your search results for: @searchString</p>
+*@
+
+@code {
+    private string searchString = string.Empty;
+
+    [Parameter]
+    public EventCallback<string> OnSearchInventory { get; set; }
+
+    private void OnSearch(){
+        OnSearchInventory.InvokeAsync(searchString);
+    }
+
+    private async Task OnEnter(KeyboardEventArgs args){
+        if(args.Key=="Enter"){
+           await OnSearchInventory.InvokeAsync(searchString);
+        }
+    }
+
+}

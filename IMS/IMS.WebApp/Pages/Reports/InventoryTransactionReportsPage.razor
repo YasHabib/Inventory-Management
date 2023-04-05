@@ -1,0 +1,100 @@
+﻿@page "/inventoryreport"
+@using static IMS.WebApp.Components.Common.AutoCompleteComponent
+@inject ISearchInventoryTransactionsUseCase _searchInventoryUseCase
+@inject IJSRuntime JSRuntime
+
+<h3>Inventory Transactions</h3>
+<br />
+
+<div id="print-area">
+    <div class="row">
+        <div class="col">
+            <label for="inv">Inventory Name</label>
+            <input type="text" id="inv" class="form-control" @bind-value="invName"/>
+        </div>
+        <div class="col">
+            <label for="df">Date From</label>
+            <input type="date" id="df" class="form-control" @bind-value="dateForm" />
+        </div>
+        <div class="col">
+            <label for="dt">Date To</label>
+            <input type="date" id="dt" class="form-control" @bind-value="dateTo" />
+        </div>
+        <div class="col">
+            <label for="at">Activity Type</label>
+            <select id="at" class="form-control" @bind="activityTypeId">
+                <option value="0"></option>
+                <option value="1">Purchase Inventory</option>
+                <option value="2">Produce Inventory</option>
+            </select>
+        </div>
+        <div class="col">
+            <label>&nbsp;</label>
+            <button type="button" class="btn btn-primary form-control" @onclick="SearchInventories">Search</button>
+        </div>
+        <div class="col">
+            <label>&nbsp;</label>
+            <button type="button" class="btn btn-primary form-control" @onclick="PrintReport">Print</button>
+        </div>
+    </div>
+    <br />
+    @if(inventoryTransactions != null){
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Inventory</th>
+                    <th>Activity</th>
+                    <th>Quantity (before)</th>
+                    <th>Quantity (after)</th>
+                    <th>Product Order #</th>
+                    <th>Production #</th>
+                    <th>Purchased by</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var invTrans in inventoryTransactions){
+                    <tr>
+                        <td>@invTrans.TransactionDate.ToString("MM/dd/yyyy")</td>
+                        <td>@invTrans.Inventories.InventoryName</td>
+                        <td>
+                            @if(invTrans.ActivityType == InventoryTransactionType.PurchaseInventory){
+                                <text>Produce</text>
+                            }
+                            else if(invTrans.ActivityType == InventoryTransactionType.ProduceProduct){
+                                <text>Produce</text>
+                            }
+                        </td>
+                        <td>@invTrans.QuantityBefore</td>
+                        <td>@invTrans.QuantityAfter</td>
+                        <td>@invTrans.PurchaseOrderNumber</td>
+                        <td>@invTrans.ProductionNumber</td>
+                        <td>@invTrans.PurchasedBy</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    private string invName = string.Empty;
+    private DateTime? dateForm;
+    private DateTime? dateTo;
+    private int activityTypeId = 0;
+    private IEnumerable<InventoryTransaction>? inventoryTransactions;
+
+    private async Task SearchInventories()
+    {
+        InventoryTransactionType? invType = null; 
+        if(activityTypeId != 0){
+            invType = (InventoryTransactionType)activityTypeId;
+        }
+
+        inventoryTransactions =await _searchInventoryUseCase.ExecuteAsync(invName, dateForm, dateTo, invType);
+    }
+
+    private void PrintReport(){
+        JSRuntime.InvokeVoidAsync("print");
+    }
+}

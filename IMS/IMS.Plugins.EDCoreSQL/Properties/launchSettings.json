@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "IMG.Plugins.EFCoreSQL": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:65020;http://localhost:65025"
+    }
+  }
+}

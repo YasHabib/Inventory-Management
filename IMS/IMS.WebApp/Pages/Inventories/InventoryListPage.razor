@@ -1,0 +1,47 @@
+﻿@page "/inventories"
+@attribute [Authorize(Policy = "Inventory")]
+@using static IMS.WebApp.Components.Common.AutoCompleteComponent
+@inject IViewInventoriesByNameUseCases _viewInventoriesByNameUseCases
+
+
+<h3>List of inventories</h3>
+<br/>
+<SearchInventoryComponent OnSearchInventory="OnInventorySearch"></SearchInventoryComponent>
+<br />
+<InventoryList SearchTerm="@searchTerm"></InventoryList>
+<br/>
+<button type="button" class="btn btn-primary" @onclick="AddInventory" >Add Inventory</button>
+<br />
+@selectedItem?.Name
+
+@code {
+    private ItemViewModel selectedItem = null;
+
+    //Searching for inventories
+    private string searchTerm = string.Empty;
+
+    private void OnInventorySearch(string searchTerm){
+        this.searchTerm = searchTerm;
+    }
+
+    private void AddInventory(){
+        navManager.NavigateTo("/addInventory");
+    }
+
+    private List<ItemViewModel>? SearchInventory(string name)
+    {
+        var list = _viewInventoriesByNameUseCases.ExecuteAsync(name).GetAwaiter().GetResult();
+
+        if (list == null) return null;
+
+        return list.Select(i => new ItemViewModel
+            {
+                Id = i.InventoryId,
+                Name = i.InventoryName
+            })?.ToList();
+    }
+
+    private void OnItemSelected(ItemViewModel item){
+        selectedItem = item;
+    }
+}

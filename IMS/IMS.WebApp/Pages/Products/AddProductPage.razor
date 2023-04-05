@@ -1,0 +1,42 @@
+﻿@page "/addproduct"
+@attribute [Authorize(Policy = "Inventory")]
+
+@inject IAddProductUseCase _addProductUseCase
+
+<h3>Add a new Product</h3>
+<br/>
+
+<EditForm Model="products" OnValidSubmit="SaveProduct">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <ValidationSummary></ValidationSummary>
+
+    <div class="form-group">
+        <label for="name">Product Name</label>
+        <InputText id="name" class="form-control" @bind-Value="products.ProductName"></InputText>
+        <label for="quantity">Quanity</label>
+        <InputNumber id="quantity" class="form-control" @bind-Value="products.Quantity"></InputNumber>
+        <label for="price">Price</label>
+        <InputNumber id="price" class="form-control" @bind-Value="products.Price"></InputNumber>
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="invs">Inventories</label>
+        <ProductInventoryComponent Product="this.products"></ProductInventoryComponent>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-warning" @onclick="Cancel">Cancel</button>
+</EditForm>
+
+@code {
+    private Product products = new Product();
+
+    private async Task SaveProduct(){
+        await _addProductUseCase.ExecuteAsync(products);
+        navManager.NavigateTo("/products");
+    }
+
+    private void Cancel(){
+        navManager.NavigateTo("/products");
+    }
+}

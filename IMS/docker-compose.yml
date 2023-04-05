@@ -1,0 +1,29 @@
+version: '3.4'
+  
+
+services:
+  ims.webapp:
+    container_name: ims.app
+    image: ${DOCKER_REGISTRY-}imswebapp
+    build:
+      context: .
+      dockerfile: IMS.WebApp/Dockerfile
+    ports:
+     - "8001:80"
+    depends_on:
+     - ims.db
+  ims.db:
+    restart: on-failure
+    container_name: ims.db
+    image: "postgis/postgis:14-3.2-alpine"
+    ports:
+     - "8002:5432"
+    environment:
+    - POSTGRES_USER=IMSuser
+    - POSTGRES_PASSWORD=IMSpassword
+    - POSTGRES_DB=IMSdb
+    volumes:
+     - ims-db:/var/lib/postgresql/data
+volumes:
+  ims-db:
+
